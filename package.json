@@ -1,0 +1,23 @@
+{
+  "name": "evalora-ai-interview-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Demo: AI video interviewer (Gemini Live) that interviews a candidate based on their CV",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mammoth": "^1.8.0",
+    "multer": "^2.0.0",
+    "pdf-parse": "^2.4.5",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,31 @@
+Rahim Ahmed
+Dhaka, Bangladesh | rahim.ahmed@example.com | github.com/rahim-example
+
+SUMMARY
+Final-year CSE student focused on machine learning and computer vision for healthcare.
+Built and deployed several deep learning projects end to end.
+
+SKILLS
+Python, PyTorch, TensorFlow, scikit-learn, OpenCV, Machine Learning, Deep Learning,
+Computer Vision, Transfer Learning, FastAPI, Docker, SQL, Git, Streamlit
+
+PROJECTS
+Glaucoma Detection from Fundus Images
+- Fine-tuned a ConvNeXt ensemble on three public fundus datasets from different countries.
+- Studied domain shift between datasets and used class-weighted loss to handle imbalance.
+- Reached 0.93 AUC on the held-out test set; wrote the evaluation pipeline and error analysis.
+
+Facial Emotion Recognition on RAF-DB
+- Trained MobileNetV2 with a squeeze-and-excitation block; used augmentation and label smoothing.
+- Exported the model to ONNX and served it through a FastAPI endpoint in Docker.
+
+Gesture-Controlled Virtual Whiteboard
+- Real-time hand tracking with MediaPipe and OpenCV; deployed on Streamlit.
+
+EDUCATION
+B.Sc. in Computer Science and Engineering, University of Dhaka (expected 2027)
+
+EXPERIENCE
+Research Assistant, Medical AI Lab (2025 - present)
+- Experiments on federated learning for medical imaging with clients in different regions.
+- Tracked experiments and compared models with cross-validation and statistical tests.

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evalora · AI Interview Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- 1. Setup -->
+<section id="setup" class="screen">
+  <div class="card">
+    <h1>AI Interview Demo</h1>
+    <p class="muted">Upload a CV. The AI interviewer reads it and interviews you on the skills it finds.</p>
+
+    <label class="drop" for="cvFile">
+      <strong>Choose a CV</strong>
+      <span class="muted">PDF, DOCX or TXT, up to 5 MB</span>
+    </label>
+    <input id="cvFile" type="file" accept=".pdf,.docx,.txt" hidden />
+    <p id="status" class="status"></p>
+
+    <div id="analysis" class="hidden">
+      <p class="label">Candidate</p>
+      <p id="candName" class="big"></p>
+      <p class="label">Skills found</p>
+      <div id="skills" class="chips"></div>
+      <p class="label">Interview will focus on</p>
+      <div id="topics" class="chips accent"></div>
+      <details>
+        <summary>Extracted text preview</summary>
+        <pre id="preview"></pre>
+      </details>
+    </div>
+
+    <button id="joinBtn" class="primary" disabled>Join interview</button>
+    <p class="muted small">Needs camera + microphone. Use headphones to avoid echo.</p>
+  </div>
+</section>
+
+<!-- 2. Meeting -->
+<section id="meeting" class="screen hidden">
+  <header class="topbar">
+    <span>Evalora · AI Interview</span>
+    <span id="timer">00:00</span>
+  </header>
+
+  <main class="grid">
+    <div class="tile" id="aiTile">
+      <svg id="avatar" viewBox="0 0 200 200" aria-label="AI interviewer avatar">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3b4a6b" />
+            <stop offset="1" stop-color="#1f2a44" />
+          </linearGradient>
+        </defs>
+        <rect width="200" height="200" fill="url(#bg)" />
+        <path d="M25 200 C32 150 72 140 100 140 C128 140 168 150 175 200 Z" fill="#2b3a55" />
+        <path d="M88 126 h24 v20 q-12 10 -24 0 z" fill="#e3b08d" />
+        <ellipse cx="100" cy="80" rx="48" ry="50" fill="#1b2230" />
+        <ellipse cx="100" cy="90" rx="38" ry="45" fill="#f1c9a8" />
+        <path d="M60 84 C56 38 144 38 140 84 C130 64 112 58 100 58 C86 58 70 66 60 84Z" fill="#1b2230" />
+        <g>
+          <ellipse class="eye" cx="84" cy="90" rx="4.5" ry="5.5" fill="#1b2230" />
+          <ellipse class="eye" cx="116" cy="90" rx="4.5" ry="5.5" fill="#1b2230" />
+        </g>
+        <path d="M75 79 Q84 74 93 79" stroke="#1b2230" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <path d="M107 79 Q116 74 125 79" stroke="#1b2230" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <path d="M100 94 q-3 10 2 12" stroke="#d9a07c" stroke-width="2" fill="none" stroke-linecap="round" />
+        <ellipse id="mouth" cx="100" cy="114" rx="10" ry="1.5" fill="#7a2230" />
+        <!-- headset -->
+        <path d="M58 90 C54 40 146 40 142 90" stroke="#9aa8c7" stroke-width="4" fill="none" />
+        <rect x="52" y="84" width="9" height="20" rx="4" fill="#9aa8c7" />
+        <rect x="139" y="84" width="9" height="20" rx="4" fill="#9aa8c7" />
+      </svg>
+      <span class="name">Aria · AI Interviewer</span>
+    </div>
+
+    <div class="tile" id="meTile">
+      <video id="selfVideo" autoplay muted playsinline></video>
+      <span class="name">You</span>
+    </div>
+  </main>
+
+  <div id="captions" class="captions"></div>
+
+  <footer class="controls">
+    <button id="micBtn" class="round" title="Mute / unmute">🎤</button>
+    <button id="camBtn" class="round" title="Camera on / off">📷</button>
+    <button id="leaveBtn" class="round leave" title="Leave">Leave</button>
+  </footer>
+
+  <div id="overlay" class="overlay hidden"><div class="spinner"></div><p id="overlayText">Connecting…</p></div>
+</section>
+
+<!-- 3. Report -->
+<section id="report" class="screen hidden">
+  <div class="card wide">
+    <h1>Interview report</h1>
+    <p class="muted">AI suggestion only. A human makes the hiring decision.</p>
+    <div id="reportBody"></div>
+    <details>
+      <summary>Full transcript</summary>
+      <div id="transcript"></div>
+    </details>
+    <button id="againBtn" class="primary">Start again</button>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
