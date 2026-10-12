@@ -30,7 +30,7 @@ avatar + speaker (24 kHz PCM) <- WebSocket      <-  audio + transcripts
 | Variable | Default | Meaning |
 |---|---|---|
 | `LIVE_MODEL` | `gemini-3.8-live` | Live voice model |
-| `TEXT_MODEL` | `gemini-3.8-flash` | CV skills and report |
+| `TEXT_MODEL` | `gemini-3.5-flash-lite` | CV skills and report |
 | `USE_VERTEX` | `false` | `true` only for Google Cloud / Vertex AI express keys (start with `AQ.`) |
 | `VOICE` | `Kore` | Gemini voice name |
 | `INTERVIEW_MINUTES` | `10` | Planned length; the agent is told to wrap up one minute before |
